@@ -1,0 +1,76 @@
+.laptop{
+    display: inline;
+}
+
+.mobile{
+    display: none;
+}
+
+.home{
+    padding: 24px 0 0;
+}
+
+.home-title{
+    color: #ffa945;
+    font-weight: 700;
+    font-size: 108px;
+}
+
+.polydian-hero-container{
+    padding: 72px 0;
+}
+
+.polydian-hero-container-title{
+    font-size: 42px;
+    font-weight: 400;
+}
+
+.polydian-hero-container-text{
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.polydian-hero-container-bttn{
+    padding: 18px 42px;
+    background-color: #ffa945;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 32px;
+    text-decoration: none;
+}
+
+.polydian-hero-container-link,
+.polydian-hero-container-link:hover,
+.polydian-hero-container-link:active,
+.polydian-hero-container-link:visited,
+.polydian-hero-container-link:focus{
+    text-decoration: none;
+}
+
+.shift-left{
+    padding-left: 20px;
+}
+
+@media(max-width: 991px){
+    .laptop{
+        display: none;
+    }
+
+    .mobile{
+        display: inline;
+    }
+
+    .home-title{
+        font-size: 72px;
+    }
+
+    .polydian-hero-container-title{
+        font-size: 32px;
+    }
+
+    .polydian-hero-container-text{
+        font-size: 16px;
+    }
+
+}

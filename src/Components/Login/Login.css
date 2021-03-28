@@ -1,0 +1,66 @@
+.login-container{
+    padding: 32px 0;
+}
+
+.login-container-title{
+    font-size: 108px;
+    font-weight: 700;
+    color: #ffa945;
+}
+
+.login-container-text{
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.login-image-placeholder{
+    padding: 72px 0;
+}
+
+.auth-groups{
+    padding-top: 10px;
+    padding-left: 12px;
+    padding-bottom: 9px;
+    background-color: rgba(255, 169, 69, 0.12);
+    color: #000!important;
+}
+
+.auth-groups label{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.auth-groups input{
+    border: none!important;
+    outline: none!important;
+    background: transparent!important;
+    font-size: 24px!important;
+    box-shadow: none!important;
+    padding: 0!important;
+    line-height: 0!important;
+    color: #000!important;
+    font-weight: 300!important;
+    margin-top: 0!important;
+}
+
+.auth-bttn, .auth-bttn:hover, .auth-bttn:active, .auth-bttn:visited, .auth-bttn:focus{
+    outline: none!important;
+    border: none!important;
+    box-shadow: none!important;
+    background: #ffa945;
+    padding: 8px 54px;
+    border-radius: 42px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 18px;
+}
+
+@media(max-width: 991px){
+    .login-container-title{
+        font-size: 72px;
+    }
+
+    .login-container-text{
+        font-size: 20px;
+    }
+}
