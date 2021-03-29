@@ -2,9 +2,14 @@ import { useState, useEffect } from "react";
 import "./Notes.css";
 import logo from "../../Assets/logo.png";
 import { formatDate, formatTime, formatNoteText } from "../../utils/utils";
+const Link = require("react-router-dom").Link;
 
 function NoteCard(props){
     let {url, date, time, text} = props;
+
+    const openWebsite = () => {
+        window.open(url);
+    }
 
     return (
         <div className="col-md-6">
@@ -19,7 +24,7 @@ function NoteCard(props){
                 </div>
                 <br />
                 <div className="row">
-                    <div className="col-md-10 notecard-url-placeholder">
+                    <div className="col-md-10 notecard-url-placeholder" onClick={openWebsite}>
                         {url}
                     </div>
                 </div>
@@ -106,9 +111,11 @@ function Notes(props){
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3 username-placeholder">
-                            @{username}
-                        </div>
+                        <Link to="/profile" className="polydian-home-link">
+                            <div className="col-md-3 username-placeholder">
+                                @{username}
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>

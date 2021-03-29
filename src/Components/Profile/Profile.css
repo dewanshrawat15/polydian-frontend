@@ -1,3 +1,24 @@
 .profile{
     padding: 96px 0;
 }
+
+.profile-username{
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffa945;
+}
+
+.logout-bttn{
+    padding: 15px 84px;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 32px;
+    font-weight: 700;
+    color: #fff;
+    background: #ffa945;
+}
+
+.logout-bttn, .logout-bttn:active, .logout-bttn:hover, .logout-bttn:visited, .logout-bttn:focus{
+    text-decoration: none!important;
+    color: #fff!important;
+}

@@ -16,7 +16,7 @@ function Login(props){
             "username": username,
             "password": password
         };
-        fetch("http://localhost:3000/users/login", {
+        fetch("http://192.168.43.95:3000/users/login", {
             method: "POST",
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -126,7 +126,6 @@ function Login(props){
                             paddingLeft: 20,
                             paddingRight: 20
                         }}>
-                            <form onSubmit={handleSubmit}>
                                 <div className="form-group auth-groups">
                                     <label htmlFor="email-mob">Username:</label>
                                     <input name="username" type="text" className="form-control" id="email-mob" onChange={(e) => updateUsernameOrPassword("username", e)} />
@@ -139,7 +138,7 @@ function Login(props){
                                 <button type="submit" className="btn btn-default auth-bttn">
                                     Login
                                 </button>
-                            </form>
+
                         </div>
                     </div>
                 </div>
