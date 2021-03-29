@@ -2,6 +2,7 @@ import { Component } from "react";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Notes from "./Components/Notes/Notes";
+import Profile from "./Components/Profile/Profile";
 
 const reactRouter = require("react-router-dom");
 
@@ -20,14 +21,14 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      authToken: null
+      data: null
     };
-    this.setAuthToken = this.setAuthToken.bind(this);
+    this.setAuthDetails = this.setAuthDetails.bind(this);
   }
 
-  setAuthToken = (newAuthToken) => {
+  setAuthDetails = (data) => {
     this.setState({
-      authToken: newAuthToken
+      data: data
     });
   }
 
@@ -36,13 +37,16 @@ class App extends Component{
       <Router>
         <Switch>
           <Route path="/login">
-            <Login setAuthToken={this.setAuthToken} />
+            <Login setAuthDetails={this.setAuthDetails} />
           </Route>
           <Route path="/contact">
             <Contact />
           </Route>
           <Route path="/notes">
-            <Notes authToken={this.state.authToken} />
+            <Notes details={this.state.data} />
+          </Route>
+          <Route path="/profile">
+            <Profile details={this.state.data} />
           </Route>
           <Route path="/">
             <Home />

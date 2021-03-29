@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function Login(props){
-    let { setAuthToken } = props;
+    let { setAuthDetails } = props;
 
     const [username, setUsername] = useState(null);
     const [password, setPassowrd] = useState(null);
@@ -31,7 +31,11 @@ function Login(props){
                 console.error("An error occured");
             }
         }).then(data => {
-            setAuthToken(data.authToken);
+            let details = {
+                authToken: data.authToken,
+                username: username
+            }
+            setAuthDetails(details);
             history.push("/notes");
         });
     }
