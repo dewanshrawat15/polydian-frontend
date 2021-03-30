@@ -6,10 +6,32 @@ const Link = require("react-router-dom").Link;
 const crypto = require('crypto');
 
 function NoteCard(props){
-    let {url, date, time, text} = props;
+    let {url, date, time, text, _id, authToken} = props;
 
     const openWebsite = () => {
         window.open(url);
+    }
+
+    const deleteNote = () => {
+        fetch("http://localhost:3000/note/delete", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+                'Authorization': authToken
+            },
+            body: JSON.stringify({
+                "id": _id
+            })
+        }).then(response => {
+            if(response.ok){
+                return response.json();
+            } else {
+                console.log("An error occurred");
+            }
+        }).then(data => {
+            console.log(data);
+        });
     }
 
     return (
@@ -37,9 +59,14 @@ function NoteCard(props){
                 </div>
                 <br />
                 <div className="row">
-                    <div className="col-md-4 col-md-offset-8 notecard-icon-holder">
+                    <div className="col-md-1 col-md-offset-10 notecard-icon-holder">
                         <span className="notecard-icon-placeholder">
                             <i className="fa fa-download"></i>
+                        </span>
+                    </div>
+                    <div className="col-md-1 notecard-icon-holder">
+                        <span className="notecard-icon-placeholder" onClick={deleteNote}>
+                            <i className="fa fa-trash"></i>
                         </span>
                     </div>
                 </div>
@@ -116,7 +143,9 @@ function Notes(props){
                 for (let index = 0; index < cards.length; index++) {
                     const element = cards[index];
                     let hashUrlId = crypto.createHash('sha1').update(element._id).digest('hex');
-                    let newCard = <NoteCard {...element} key={hashUrlId} />
+                    let tempProps = element;
+                    tempProps.authToken = authToken;
+                    let newCard = <NoteCard {...tempProps} key={hashUrlId} />
                     elems.push(newCard);
                 }
                 updateCardRow(elems);
