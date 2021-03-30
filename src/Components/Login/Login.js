@@ -16,7 +16,7 @@ function Login(props){
             "username": username,
             "password": password
         };
-        fetch("http://192.168.43.95:3000/users/login", {
+        fetch("http://localhost:3000/users/login", {
             method: "POST",
             headers: {
                 'Accept': 'application/json, text/plain, */*',
