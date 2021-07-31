@@ -6,7 +6,7 @@ const Link = require("react-router-dom").Link;
 const crypto = require('crypto');
 
 function NoteCard(props){
-    let {url, date, time, text, _id, authToken} = props;
+    let {url, date, time, summary, _id, authToken} = props;
 
     const openWebsite = () => {
         window.open(url);
@@ -34,6 +34,27 @@ function NoteCard(props){
         });
     }
 
+    const exportNote = () => {
+        let websiteUrl = "http://localhost:3000/note/export/" + _id;
+        console.log(websiteUrl);
+        // fetch(websiteUrl, {
+        //     method: "GET",
+        //     headers: {
+        //         'Accept': 'application/json, text/plain, */*',
+        //         'Content-Type': 'application/json',
+        //         'Authorization': authToken
+        //     }
+        // }).then(response => {
+        //     if(response.ok){
+        //         return response.json();
+        //     } else {
+        //         console.log("An error occurred");
+        //     }
+        // }).then(data => {
+        //     console.log(data);
+        // })
+    }
+
     return (
         <div className="col-md-6">
             <div className="note-card">
@@ -54,13 +75,13 @@ function NoteCard(props){
                 <br />
                 <div className="row">
                     <div className="col-md-12 notecard-text">
-                        {formatNoteText(text)}
+                        {summary}
                     </div>
                 </div>
                 <br />
                 <div className="row">
                     <div className="col-md-1 col-md-offset-10 notecard-icon-holder">
-                        <span className="notecard-icon-placeholder">
+                        <span className="notecard-icon-placeholder" onClick={exportNote}>
                             <i className="fa fa-download"></i>
                         </span>
                     </div>
